@@ -1,0 +1,45 @@
+.autorizacao {
+  background-color: #afbfae;
+}
+
+.autorizacao h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.autorizacao span {
+  font-size: 12px;
+  color: #4d4c4c;
+}
+
+.autorizacao form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.autorizacao button {
+  margin: 0 20px;
+  margin-top: 12px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #535353;
+  border: 0;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.autorizacao button:hover {
+  background-color: #707070;
+}
+
+.cadastro {
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

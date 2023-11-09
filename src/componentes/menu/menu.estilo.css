@@ -24,8 +24,3 @@
 .menu-icone-instagram {
   width: 64px;
 }
-
-.menu-navegacao > li:last-child {
-  position: absolute;
-  bottom: 0;
-}
