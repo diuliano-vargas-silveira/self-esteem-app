@@ -1,0 +1,8 @@
+.pagina {
+  display: flex;
+}
+
+.pagina-main {
+  width: 80vw;
+  background-color: #afbfae;
+}
