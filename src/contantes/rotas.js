@@ -10,6 +10,8 @@ import Dicas from "../telas/dicas/dicas.tela";
 import AutoCuidado from "../telas/autocuidado/autocuidado.tela";
 import Perfil from "../telas/perfil/perfil.tela";
 import Ajuda from "../telas/ajuda/ajuda.tela";
+import Cadastro from "../telas/cadastro/cadastro.tela";
+import Login from "../telas/login/login.tela";
 
 const ROTAS = {
   MENU: [
@@ -50,8 +52,8 @@ const ROTAS = {
       element: <Ajuda />,
     },
   ],
-  CADASTRO: { nome: "Cadastro", path: "/cadastro" },
-  LOGIN: { nome: "Login", path: "/login" },
+  CADASTRO: { nome: "Cadastro", path: "/cadastro", element: <Cadastro /> },
+  LOGIN: { nome: "Login", path: "/login", element: <Login /> },
 };
 
 export default ROTAS;

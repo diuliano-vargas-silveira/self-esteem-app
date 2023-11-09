@@ -5,7 +5,7 @@
 }
 
 .link-menu-imagem {
-  width: 24px;
+  width: 22px;
   fill: #8a8a8a;
   transition: 0.3s;
 }
@@ -13,7 +13,7 @@
 .link-menu-texto {
   text-decoration: none;
   color: #000000;
-  font-size: 18px;
+  font-size: 14px;
   transition: 0.3s;
 }
 

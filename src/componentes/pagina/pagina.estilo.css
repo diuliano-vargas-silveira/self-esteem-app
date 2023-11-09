@@ -4,5 +4,7 @@
 
 .pagina-main {
   width: 80vw;
+  position: relative;
+  padding: 20px 60px;
   background-color: #afbfae;
 }

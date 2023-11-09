@@ -1,0 +1,16 @@
+.botao-cadastro {
+  border: 2px solid #f4e9dd;
+  transition: 0.3s;
+  font-size: 18px;
+  padding: 8px;
+  color: #000;
+  text-decoration: none;
+
+  position: absolute;
+  top: 60px;
+  right: 60px;
+}
+
+.botao-cadastro:hover {
+  background-color: #f4e9dd;
+}
