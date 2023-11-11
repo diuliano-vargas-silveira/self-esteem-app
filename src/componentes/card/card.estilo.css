@@ -1,0 +1,24 @@
+.item {
+  font-size: 3vh;
+  padding: 25px 10px;
+}
+
+.a {
+  grid-area: a;
+  background-color: #cbd9c8;
+}
+
+.b {
+  grid-area: b;
+  background-color: #ececec;
+}
+
+.c {
+  grid-area: c;
+  background-color: #f4e9dd;
+}
+
+.d {
+  grid-area: d;
+  background-color: #818b7e;
+}
