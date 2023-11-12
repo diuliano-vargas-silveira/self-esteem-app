@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+<div align="center">
+	<br>
+	<div>
+		<img width="1000" height="600" src="media/logo.png" alt="ky">
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Refúgio de Autoestima e Bem-Estar
 
-## Available Scripts
+Seja bem-vinda a um espaço pensado especialmente para você, um refúgio dedicado à promoção da autoestima e ao fortalecimento emocional das mulheres. Aqui, reconhecemos a importância da jornada da autoaceitação, especialmente em um mundo onde as redes sociais muitas vezes distorcem a realidade.
 
-In the project directory, you can run:
+## Instalação
 
-### `npm start`
+```sh
+npm install
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Uso
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```sh
+npm run start
+```
 
-### `npm test`
+A aplicação estará disponível na porta 3000.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Sobre Nós
 
-### `npm run build`
+Este é um lugar criado com carinho e atenção por Nathalia Machado, com o propósito de oferecer suporte e inspiração para mulheres que buscam uma autoimagem positiva e desejam fortalecer sua saúde emocional.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Missão
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Nosso compromisso é caminhar ao seu lado enquanto exploramos a importância da autoestima, da saúde emocional e da verdadeira aceitação. Entendemos que essa jornada pode ser desafiadora, mas acreditamos que, juntas, podemos criar um ambiente onde a autenticidade e o amor-próprio florescem.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## O Que Esperar
 
-### `npm run eject`
+- Conteúdo Inspirador: Publicamos regularmente conteúdo que visa inspirar e fortalecer a sua jornada de autoconhecimento.
+- Comunidade Apoiadora: Este é um espaço para compartilhar experiências, aprender umas com as outras e construir uma comunidade de apoio mútuo.
+- Dicas Práticas: Oferecemos dicas práticas e recursos para promover a autoestima e a saúde emocional no dia a dia.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Agradecimento
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Agradecemos por se juntar a nós nesta jornada. Sua presença enriquece nosso refúgio, e estamos ansiosos para crescer e aprender ao seu lado.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Sinta-se em casa, pois este é um local onde a autenticidade e o amor-próprio são celebrados. Estamos aqui para apoiar, inspirar e promover um ambiente onde cada mulher se sinta verdadeiramente bem consigo mesma.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Com carinho,
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Nathalia Machado
