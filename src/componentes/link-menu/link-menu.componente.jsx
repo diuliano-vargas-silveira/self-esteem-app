@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import "./link-menu.estilo.css";
 
-function LinkMenu({ nome, getIcone, path }) {
+function LinkMenu({ nome, getIcone, path, ativado }) {
   const location = useLocation();
   const className = path === location.pathname ? "link-menu-ativo" : "";
 
@@ -11,7 +11,7 @@ function LinkMenu({ nome, getIcone, path }) {
     <li>
       <Link to={path} className={`link-menu link-menu-texto ${className}`}>
         {getIcone("link-menu-imagem")}
-        <span>{nome}</span>
+        {ativado && <span>{nome}</span>}
       </Link>
     </li>
   );
