@@ -7,4 +7,5 @@
   position: relative;
   padding: 20px 60px;
   background-color: #afbfae;
+  overflow: hidden;
 }
