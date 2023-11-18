@@ -1,8 +1,8 @@
 import React from "react";
 import Pagina from "../../componentes/pagina/pagina.componente";
 
-function Dicas() {
+function Quiz() {
   return <Pagina>Dicas</Pagina>;
 }
 
-export default Dicas;
+export default Quiz;

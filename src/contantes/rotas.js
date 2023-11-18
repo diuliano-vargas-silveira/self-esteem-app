@@ -5,11 +5,11 @@ import { ReactComponent as IconeAutocuidado } from "../assets/icones/autocuidado
 import { ReactComponent as IconePerfil } from "../assets/icones/perfil.icone.svg";
 import Sobre from "../telas/sobre/sobre.tela";
 import Meditacoes from "../telas/meditacoes/meditacoes.tela";
-import Dicas from "../telas/dicas/dicas.tela";
 import AutoCuidado from "../telas/autocuidado/autocuidado.tela";
 import Perfil from "../telas/perfil/perfil.tela";
 import Cadastro from "../telas/cadastro/cadastro.tela";
 import Login from "../telas/login/login.tela";
+import Quiz from "../telas/quiz/quiz.tela";
 
 const ROTAS = {
   MENU: [
@@ -26,10 +26,10 @@ const ROTAS = {
       element: <Meditacoes />,
     },
     {
-      nome: "Dicas",
+      nome: "Quiz",
       getIcone: (className) => <IconeDicas className={className} />,
-      path: "/dicas",
-      element: <Dicas />,
+      path: "/quiz",
+      element: <Quiz />,
     },
     {
       nome: "Autocuidado",

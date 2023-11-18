@@ -24,6 +24,7 @@ function Login() {
     setFormulario({ ...formulario, [name]: { ...FORMULARIO[name], value } });
   }
 
+  console.log(formulario);
   function handleSubmit(event) {
     event.preventDefault();
   }
