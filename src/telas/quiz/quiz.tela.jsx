@@ -16,39 +16,44 @@ function Quiz() {
   }, [perguntasSelecionadas]);
 
   function handleClickSelecionarPergunta(perguntaComResposta) {
-    setRespostas([...respostas, perguntaComResposta])
+    setRespostas([...respostas, perguntaComResposta]);
   }
 
   function renderizarQuiz() {
-    const perguntaSelecionada =
-      PERGUNTAS_QUIZ[perguntasSelecionadas[perguntaAtual]];
+    if (perguntasSelecionadas) {
+      const perguntaSelecionada =
+        PERGUNTAS_QUIZ[perguntasSelecionadas[perguntaAtual]];
 
-    return (
-      <section>
-        <span>{perguntaSelecionada.pergunta}</span>
-        <ul>
-          {perguntaSelecionada.opcoes.map((resposta, index) => {
-            function selecionarResposta() {
-              handleClickSelecionarPergunta({...perguntaSelecionada, resposta})
-            }
-            
-            return (
-              <li key={index}>
-                <button onClick={selecionarResposta}>
-                  {resposta}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
-    );
+      return (
+        <section>
+          <span>{perguntaSelecionada.pergunta}</span>
+          <ul>
+            {perguntaSelecionada.opcoes.map((resposta, index) => {
+              function selecionarResposta() {
+                handleClickSelecionarPergunta({
+                  ...perguntaSelecionada,
+                  resposta,
+                });
+              }
+
+              return (
+                <li key={index}>
+                  <button onClick={selecionarResposta}>{resposta}</button>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      );
+    }
   }
 
   return (
     <Pagina>
-      <h1>VAMOS DESCOBRIR O QUANTO VOCÊ SE CONHECE?</h1>
-      {renderizarQuiz()}
+      <section className="quiz">
+        <h1>VAMOS DESCOBRIR O QUANTO VOCÊ SE CONHECE?</h1>
+        {renderizarQuiz()}
+      </section>
     </Pagina>
   );
 }
