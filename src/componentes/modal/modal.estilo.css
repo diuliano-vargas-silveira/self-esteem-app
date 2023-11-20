@@ -1,0 +1,31 @@
+.modal {
+  position: absolute;
+
+  z-index: 2;
+  background-color: #f4e9dd;
+  border-radius: 16px;
+  padding: 30px;
+
+  width: 30%;
+  min-width: 300px;
+}
+
+.modal-titulo {
+  font-size: 18px;
+  text-align: center;
+}
+
+.modal-texto {
+  font-size: 16px;
+  text-align: center;
+}
+
+.modal-button {
+  border-radius: 16px;
+  font-weight: 700;
+  padding: 8px;
+  background-color: #fff;
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+}

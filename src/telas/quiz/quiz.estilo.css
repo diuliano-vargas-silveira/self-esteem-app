@@ -1,0 +1,35 @@
+.quiz {
+  margin-top: 10%;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-titulo {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.quiz-pergunta {
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.quiz ul {
+  margin-top: 40px;
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quiz li button {
+  width: 100%;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px 16px;
+}
