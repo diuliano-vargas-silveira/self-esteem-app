@@ -5,26 +5,23 @@
   transition: width 0.2s linear;
 }
 
-.menu:hover {
+.menu-ativado {
   width: 20%;
   transition: all 0.5s ease;
 }
 
-.menu > header > .menu-icone {
-  width: 1em;
+.menu-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.menu:hover > header > .menu-icone {
-  visibility: hidden;
-}
-
-.menu > header > .menu-icone + img {
-  visibility: hidden;
-}
-
-.menu:hover > header > .menu-icone + img {
-  visibility: visible;
-  width: 64px;
+.menu-botao {
+  background-color: transparent;
+  width: min-content;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
 }
 
 .menu > nav {
@@ -45,5 +42,5 @@
 }
 
 .menu-icone {
-  width: 64px;
+  width: 24px;
 }

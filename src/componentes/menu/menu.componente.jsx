@@ -10,23 +10,31 @@ import "./menu.estilo.css";
 function Menu() {
   const [ativado, setAtivado] = useState(false);
 
+  function handleClickMenu() {
+    setAtivado(!ativado);
+  }
+
   return (
-    <aside
-      className="menu"
-      onMouseMove={() => setAtivado(true)}
-      onMouseLeave={() => setAtivado(false)}
-    >
-      <header>
-        <img
-          src={iconeInteracaoMenu}
-          alt="icone instagram"
-          className="menu-icone"
-        />
-        <img
-          src={iconeInstagram}
-          alt="icone instagram"
-          className="menu-icone"
-        />
+    <aside className={`menu menu-${ativado ? "ativado" : ""}`}>
+      <header className="menu-header">
+        <button onClick={handleClickMenu} className="menu-botao">
+          <img
+            src={iconeInteracaoMenu}
+            alt="icone menu"
+            className="menu-icone"
+          />
+        </button>
+        <a
+          href="https://www.instagram.com/ofc_selfesteem?igshid=dnA2Z3pqaXBwaDQy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={iconeInstagram}
+            alt="icone instagram"
+            className="menu-icone"
+          />
+        </a>
       </header>
       <nav>
         <ul className="menu-navegacao">

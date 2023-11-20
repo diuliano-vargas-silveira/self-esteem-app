@@ -1,0 +1,53 @@
+.perfil {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.perfil-botao {
+  width: 240px;
+  position: relative;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.perfil-edit {
+  position: absolute;
+  width: 32px;
+  bottom: 30px;
+  right: 40px;
+}
+
+.perfil h1,
+p,
+span {
+  text-align: center;
+}
+
+.perfil h1 {
+  font-size: 28px;
+}
+
+.perfil p,
+span {
+  font-size: 14px;
+}
+
+.perfil-sessao {
+  width: 60%;
+  height: 100%;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f4e9dd;
+}
+
+.perfil-main {
+  padding-top: 0;
+  padding-bottom: 0;
+}
