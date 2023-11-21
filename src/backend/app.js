@@ -101,14 +101,13 @@ app.post("/users/:email", async (req, res) => {
 
 app.patch("/users/:email", async (req, res) => {
   try {
-    const { email, nome, senha, descricao } = req.body;
+    const { email, nome, descricao } = req.body;
 
     const usuario = await prisma.usuario.update({
       where: { email },
       data: {
         email,
         nome,
-        senha,
         descricao,
       },
     });

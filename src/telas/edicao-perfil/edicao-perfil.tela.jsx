@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { iconeUsuario } from "../../assets";
+import { useUserApi } from "../../api/user.api";
+import { useNavigate } from "react-router-dom";
+import ROTAS from "../../contantes/rotas";
 
 import "./edicao-perfil.estilo.css";
-import { useUserApi } from "../../api/user.api";
 
 const FORMULARIO = {
   nome: {
     name: "nome",
-    value: "",
-  },
-  email: {
-    name: "email",
-    type: "email",
     value: "",
   },
   descricao: {
@@ -23,10 +20,12 @@ const FORMULARIO = {
 function EdicaoPerfil() {
   const [formulario, setFormulario] = useState({ ...FORMULARIO });
   const [imagePreview, setImagePreview] = useState();
+  const [email] = useState(localStorage.getItem("usuario"));
   const [imagem, setImagem] = useState();
   const [isCarregado, setIsCarregado] = useState(false);
 
-  const { getUserByEmail } = useUserApi();
+  const { getUserByEmail, editarUsuario } = useUserApi();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function adicionarFormulario(email) {
@@ -35,12 +34,10 @@ function EdicaoPerfil() {
       if (usuario) {
         setFormulario({
           nome: { ...FORMULARIO.nome, value: usuario.nome },
-          email: { ...FORMULARIO.email, value: usuario.email },
           descricao: { ...FORMULARIO.descricao, value: usuario.descricao },
         });
       }
     }
-    const email = localStorage.getItem("usuario");
 
     if (!isCarregado && email) {
       setIsCarregado();
@@ -62,6 +59,19 @@ function EdicaoPerfil() {
     };
     reader.readAsDataURL(arquivoSelecionado);
     setImagem(files);
+  }
+
+  async function handleEditar() {
+    const response = await editarUsuario({
+      email,
+      descricao: formulario.descricao.value,
+      nome: formulario.nome.value,
+    });
+
+    if (response) {
+      alert("Usuário editado com sucesso!");
+      navigate(ROTAS.MENU[4].path);
+    }
   }
 
   return (
@@ -93,13 +103,11 @@ function EdicaoPerfil() {
           {...formulario.descricao}
           onChange={handleChange}
         />
-        <input
-          className="perfil-input"
-          {...formulario.email}
-          onChange={handleChange}
-        />
+        <span className="perfil-input">{localStorage.getItem("usuario")}</span>
 
-        <button className="perfil-submit">Editar</button>
+        <button className="perfil-submit" onClick={handlEditar}>
+          Editar
+        </button>
       </section>
     </main>
   );
