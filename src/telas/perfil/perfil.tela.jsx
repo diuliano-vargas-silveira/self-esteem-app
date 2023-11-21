@@ -16,7 +16,7 @@ function Perfil() {
   return (
     <Pagina className="perfil-main">
       <div className="perfil">
-        {!usuario ? (
+        {usuario ? (
           <span>Faça login ou cadastre-se para ver seu perfil!</span>
         ) : (
           <SessaoPefil {...usuario} />

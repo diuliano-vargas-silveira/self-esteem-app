@@ -10,6 +10,7 @@ import Perfil from "../telas/perfil/perfil.tela";
 import Cadastro from "../telas/cadastro/cadastro.tela";
 import Login from "../telas/login/login.tela";
 import Quiz from "../telas/quiz/quiz.tela";
+import EdicaoPerfil from "../telas/edicao-perfil/edicao-perfil.tela";
 
 const ROTAS = {
   MENU: [
@@ -44,6 +45,11 @@ const ROTAS = {
       element: <Perfil />,
     },
   ],
+  EDICAO_PERFIL: {
+    nome: "Edição Perfil",
+    path: "/edicao-perfil",
+    element: <EdicaoPerfil />,
+  },
   CADASTRO: { nome: "Cadastro", path: "/cadastro", element: <Cadastro /> },
   LOGIN: { nome: "Login", path: "/login", element: <Login /> },
 };
