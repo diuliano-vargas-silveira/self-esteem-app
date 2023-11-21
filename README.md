@@ -6,13 +6,6 @@
 	<br>
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 </div>
 
 > Refúgio de Autoestima e Bem-Estar
