@@ -9,15 +9,23 @@ export const useUserApi = () => {
   }
 
   async function createUser(data) {
-    const response = await api.post("/sing-up", data);
+    try {
+      const response = await api.post("/sign-up", data);
 
-    return response;
+      return response;
+    } catch (e) {
+      alert("Erro, tente novamente mais tarde!");
+    }
   }
 
   async function login(data) {
-    const response = await api.post("/login", data);
+    try {
+      const response = await api.post("/login", data);
 
-    return response;
+      return response;
+    } catch (e) {
+      alert("Usuário ou senha inválidos!");
+    }
   }
 
   return useMemo(

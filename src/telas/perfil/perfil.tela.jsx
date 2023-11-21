@@ -3,20 +3,32 @@ import Pagina from "../../componentes/pagina/pagina.componente";
 import SessaoPefil from "./sessao-perfil/sessao-perfil.componente";
 
 import "./perfil.estilo.css";
+import { useUserApi } from "../../api/user.api";
 
 function Perfil() {
   const [usuario, setUsuario] = useState();
 
+  const { getUserByEmail } = useUserApi();
+
   useEffect(() => {
-    if (localStorage.getItem("usuario")) {
-      setUsuario("");
+    const getUsuario = async (email) => {
+      const usuarioResponse = await getUserByEmail(email);
+      console.log(usuarioResponse);
+      setUsuario(usuarioResponse);
+    };
+
+    const email = localStorage.getItem("usuario");
+    console.log(email);
+
+    if (!usuario && email) {
+      getUsuario(email);
     }
-  }, []);
+  }, [getUserByEmail, usuario]);
 
   return (
     <Pagina className="perfil-main">
       <div className="perfil">
-        {usuario ? (
+        {!usuario ? (
           <span>Faça login ou cadastre-se para ver seu perfil!</span>
         ) : (
           <SessaoPefil {...usuario} />

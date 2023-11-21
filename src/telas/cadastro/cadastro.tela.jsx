@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import Header from "../../componentes/header/header.componente";
 import Input from "../../componentes/input/input.componente";
+import { useUserApi } from "../../api/user.api";
+import { Link } from "react-router-dom";
+import ROTAS from "../../contantes/rotas";
+import { useNavigate } from "react-router-dom";
 
 import "./cadastro.estilo.css";
-import { useUserApi } from "../../api/user.api";
 
 const FORMULARIO = {
   nome: {
@@ -28,6 +31,8 @@ const FORMULARIO = {
 function Cadastro() {
   const [formulario, setFormulario] = useState({ ...FORMULARIO });
 
+  const navigate = useNavigate();
+
   const { createUser } = useUserApi();
 
   function handleChange({ target: { name, value } }) {
@@ -38,12 +43,16 @@ function Cadastro() {
     event.preventDefault();
 
     const data = {
-      nome: formulario.nome,
-      email: formulario.email,
-      senha: formulario.senha,
+      name: formulario.nome.value,
+      email: formulario.email.value,
+      password: formulario.senha.value,
     };
     const response = await createUser(data);
-    console.log(response);
+
+    if (response.status === 200) {
+      alert("Usuário criado com sucesso");
+      navigate(ROTAS.LOGIN.path);
+    }
   }
 
   return (
@@ -57,8 +66,9 @@ function Cadastro() {
           <Input {...formulario.nome} onChange={handleChange} />
           <Input {...formulario.email} onChange={handleChange} />
           <Input {...formulario.senha} onChange={handleChange} />
+          <Link to={ROTAS.LOGIN.path}>Já tenho conta</Link>
 
-          <button type="submit">Entrar</button>
+          <button type="submit">Cadastrar</button>
         </form>
       </section>
     </div>
