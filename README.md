@@ -1,7 +1,7 @@
 <div align="center">
 	<br>
 	<div>
-		<img width="1000" height="600" src="media/logo.png" alt="ky">
+		<img width="500"  src="media/logo.png" alt="ky">
 	</div>
 	<br>
 	<br>
