@@ -23,12 +23,29 @@
 
 .perfil-input {
   background-color: transparent;
-  border: 0;
+  border: 1px solid black;
+  border-radius: 4px;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   outline: 0;
 }
 
 .nome {
   font-size: 32px;
+}
+
+.perfil-submit {
+  background-color: #000;
+  color: #fff;
+  margin-top: 24px;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  width: 200px;
+  font-size: 18px;
+  transition: all 0.25s ease;
+}
+
+.perfil-submit:hover {
+  background-color: #3a3a3a;
 }

@@ -43,13 +43,13 @@ function Cadastro() {
     event.preventDefault();
 
     const data = {
-      name: formulario.nome.value,
+      nome: formulario.nome.value,
       email: formulario.email.value,
-      password: formulario.senha.value,
+      senha: formulario.senha.value,
     };
     const response = await createUser(data);
 
-    if (response.status === 200) {
+    if (response) {
       alert("Usuário criado com sucesso");
       navigate(ROTAS.LOGIN.path);
     }

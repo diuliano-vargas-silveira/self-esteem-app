@@ -37,12 +37,12 @@ function Login() {
 
     const data = {
       email: formulario.email.value,
-      password: formulario.senha.value,
+      senha: formulario.senha.value,
     };
 
     const response = await login(data);
 
-    if (response.status === 200) {
+    if (response) {
       alert("Login com sucesso!");
       localStorage.setItem("usuario", formulario.email.value);
       navigate(ROTAS.MENU[0].path);

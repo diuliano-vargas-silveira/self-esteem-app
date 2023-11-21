@@ -31,6 +31,28 @@ npm install
 npm run start
 ```
 
+Abra um novo terminal e rode esses comandos, para rodar o servidor:
+
+## Instalação Servidor
+
+```sh
+cd /src/backend
+```
+
+```sh
+npm i
+```
+
+```sh
+npx prisma db push
+```
+
+## Uso Servidor
+
+```sh
+node app.js
+```
+
 A aplicação estará disponível na porta 3000.
 
 ## Sobre Nós

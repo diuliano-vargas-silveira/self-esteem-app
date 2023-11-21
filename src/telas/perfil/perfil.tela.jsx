@@ -13,12 +13,12 @@ function Perfil() {
   useEffect(() => {
     const getUsuario = async (email) => {
       const usuarioResponse = await getUserByEmail(email);
-      console.log(usuarioResponse);
-      setUsuario(usuarioResponse);
+      if (usuarioResponse) {
+        setUsuario(usuarioResponse);
+      }
     };
 
     const email = localStorage.getItem("usuario");
-    console.log(email);
 
     if (!usuario && email) {
       getUsuario(email);

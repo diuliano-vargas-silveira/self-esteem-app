@@ -3,9 +3,13 @@ import { api } from "./axios";
 
 export const useUserApi = () => {
   async function getUserByEmail(email) {
-    const response = await api.get(`/users/${email}`);
+    try {
+      const response = await api.get(`/users/${email}`);
 
-    return response.data;
+      return response.data;
+    } catch (e) {
+      alert("Erro, tente novamente mais tarde!");
+    }
   }
 
   async function createUser(data) {

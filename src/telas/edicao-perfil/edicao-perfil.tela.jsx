@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { iconeUsuario } from "../../assets";
 
 import "./edicao-perfil.estilo.css";
+import { useUserApi } from "../../api/user.api";
 
 const FORMULARIO = {
   nome: {
@@ -25,12 +26,28 @@ function EdicaoPerfil() {
   const [imagem, setImagem] = useState();
   const [isCarregado, setIsCarregado] = useState(false);
 
+  const { getUserByEmail } = useUserApi();
+
   useEffect(() => {
-    if (!isCarregado) {
-      setIsCarregado();
-      const email = localStorage.getItem("usuario");
+    async function adicionarFormulario(email) {
+      const usuario = await getUserByEmail(email);
+
+      if (usuario) {
+        setFormulario({
+          nome: { ...FORMULARIO.nome, value: usuario.nome },
+          email: { ...FORMULARIO.email, value: usuario.email },
+          descricao: { ...FORMULARIO.descricao, value: usuario.descricao },
+        });
+      }
     }
-  }, [isCarregado]);
+    const email = localStorage.getItem("usuario");
+
+    if (!isCarregado && email) {
+      setIsCarregado();
+
+      adicionarFormulario(email);
+    }
+  }, [isCarregado, getUserByEmail]);
 
   function handleChange({ target: { name, value } }) {
     setFormulario({ ...formulario, [name]: { ...FORMULARIO[name], value } });
@@ -38,7 +55,6 @@ function EdicaoPerfil() {
 
   async function handleChangeImagem({ target: { files } }) {
     const arquivoSelecionado = files[0];
-    console.log(files);
 
     let reader = new FileReader();
     reader.onloadend = () => {
@@ -82,6 +98,8 @@ function EdicaoPerfil() {
           {...formulario.email}
           onChange={handleChange}
         />
+
+        <button className="perfil-submit">Editar</button>
       </section>
     </main>
   );
