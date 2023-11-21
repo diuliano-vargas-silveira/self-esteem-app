@@ -1,19 +1,25 @@
 .menu {
   width: 5%;
+  min-width: 0px;
   height: 100vh;
   padding: 5% 60px;
-  transition: width 0.2s linear;
-}
-
-.menu-ativado {
-  width: 20%;
   transition: all 0.5s ease;
 }
 
 .menu-header {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
+}
+
+.menu-ativado {
+  width: 20%;
+  min-width: 280px;
+  transition: all 0.5s ease;
+}
+
+.menu-ativado > .menu-header {
+  flex-direction: row;
 }
 
 .menu-botao {
@@ -43,4 +49,38 @@
 
 .menu-icone {
   width: 24px;
+}
+
+@media (max-width: 800px) {
+  .menu {
+    width: 100%;
+    padding: 22px;
+    height: 60px;
+    transition: none;
+  }
+
+  .menu-navegacao {
+    display: none;
+  }
+
+  .link-header {
+    display: none;
+  }
+
+  .menu-ativado {
+    background-color: #fff;
+    width: 20%;
+    min-width: 280px;
+    height: 100vh;
+    z-index: 4;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .menu-ativado .link-header,
+  .menu-navegacao {
+    display: flex;
+  }
 }

@@ -9,7 +9,6 @@ function Pagina({ className, children }) {
     <div className="pagina">
       <Menu />
       <main className={`pagina-main ${className}`}>
-        {/* gambiarra */}
         {!localStorage.getItem("usuario") && <BotaoCadastro />}
         {children}
       </main>

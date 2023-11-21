@@ -10,10 +10,12 @@
 .quiz-titulo {
   font-size: 24px;
   font-weight: 400;
+  text-align: center;
 }
 
 .quiz-pergunta {
   font-size: 19px;
+  text-align: center;
   font-weight: bold;
 }
 
