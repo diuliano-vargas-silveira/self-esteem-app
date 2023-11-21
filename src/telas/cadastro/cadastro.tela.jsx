@@ -3,6 +3,7 @@ import Header from "../../componentes/header/header.componente";
 import Input from "../../componentes/input/input.componente";
 
 import "./cadastro.estilo.css";
+import { useUserApi } from "../../api/user.api";
 
 const FORMULARIO = {
   nome: {
@@ -13,7 +14,7 @@ const FORMULARIO = {
   email: {
     name: "email",
     placeholder: "hello@reallygreatsite.com",
-    label: "NOMEMAILE",
+    label: "EMAIL",
     type: "email",
   },
   senha: {
@@ -27,12 +28,22 @@ const FORMULARIO = {
 function Cadastro() {
   const [formulario, setFormulario] = useState({ ...FORMULARIO });
 
+  const { createUser } = useUserApi();
+
   function handleChange({ target: { name, value } }) {
     setFormulario({ ...formulario, [name]: { ...FORMULARIO[name], value } });
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+
+    const data = {
+      nome: formulario.nome,
+      email: formulario.email,
+      senha: formulario.senha,
+    };
+    const response = await createUser(data);
+    console.log(response);
   }
 
   return (

@@ -20,3 +20,15 @@
   border-radius: 120px;
   cursor: pointer;
 }
+
+.perfil-input {
+  background-color: transparent;
+  border: 0;
+  text-align: center;
+  margin-bottom: 8px;
+  outline: 0;
+}
+
+.nome {
+  font-size: 32px;
+}

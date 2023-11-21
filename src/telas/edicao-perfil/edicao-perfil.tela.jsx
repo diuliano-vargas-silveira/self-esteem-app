@@ -6,13 +6,16 @@ import "./edicao-perfil.estilo.css";
 const FORMULARIO = {
   nome: {
     name: "nome",
+    value: "",
   },
   email: {
     name: "email",
     type: "email",
+    value: "",
   },
   descricao: {
     name: "descricao",
+    value: "",
   },
 };
 
@@ -64,9 +67,21 @@ function EdicaoPerfil() {
           className="edicao-imagem"
         />
 
-        <input {...formulario.nome} onChange={handleChange} />
-        <input {...formulario.descricao} onChange={handleChange} />
-        <input {...formulario.email} onChange={handleChange} />
+        <input
+          className="perfil-input nome"
+          {...formulario.nome}
+          onChange={handleChange}
+        />
+        <input
+          className="perfil-input"
+          {...formulario.descricao}
+          onChange={handleChange}
+        />
+        <input
+          className="perfil-input"
+          {...formulario.email}
+          onChange={handleChange}
+        />
       </section>
     </main>
   );
