@@ -28,11 +28,22 @@ export const useUserApi = () => {
     }
   }
 
+  async function adicionarRespostasQuiz(email, data) {
+    try {
+      const response = await api.post(`/users/${email}`, data);
+
+      return response;
+    } catch (e) {
+      alert("Erro no servidor, tente novamente mais tarde.");
+    }
+  }
+
   return useMemo(
     () => ({
       getUserByEmail,
       createUser,
       login,
+      adicionarRespostasQuiz,
     }),
     []
   );
