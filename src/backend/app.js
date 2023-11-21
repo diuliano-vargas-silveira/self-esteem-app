@@ -11,7 +11,6 @@ app.use(express.json(), cors());
 const prisma = new PrismaClient();
 
 const INSUFICIENT_DATA_ERROR = { error: "Dados incompletos." };
-const INVALID_DATA_ERROR = { error: "Id inválido." };
 const INTERNAL_SERVER_ERROR = { error: "Ocorreu um erro no servidor" };
 const NOT_AUTHORIZED_ERROR = { error: "Email ou senha incorretos" };
 
@@ -29,39 +28,39 @@ app.get("/status", (req, res) => {
 
 app.post("/sign-up", async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { nome, email, senha } = req.body;
 
-    if (!email || !password || !name) {
+    if (!email || !senha || !nome) {
       return res.status(400).send(INSUFICIENT_DATA_ERROR);
     }
 
-    const user = await prisma.user.create({
+    const usuario = await prisma.usuario.create({
       data: {
-        name: name,
+        nome: nome,
         email: email,
-        password: password,
+        senha: senha,
+        descricao: "Sua descrição aqui.",
       },
     });
 
-    return res.send(user);
+    return res.send(usuario);
   } catch (error) {
-    console.log(error);
     return res.status(500).send(INTERNAL_SERVER_ERROR);
   }
 });
 
 app.post("/login", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, senha } = req.body;
 
-    if (!email || !password) {
+    if (!email || !senha) {
       return res.status(400).send(INSUFICIENT_DATA_ERROR);
     }
 
-    const login = await prisma.user.findFirst({
+    const login = await prisma.usuario.findFirst({
       where: {
         email: email,
-        password: password,
+        senha: senha,
       },
     });
 
@@ -75,41 +74,47 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.post("/users/:id", async (req, res) => {
+app.post("/users/:email", async (req, res) => {
   try {
-    const { quizAnswers } = req.body;
-    const id = req.params.id;
+    const { respostasQuiz } = req.body;
+    const email = req.params.email;
 
-    if (!id || id < 1) {
-      return res.status(400).send(INVALID_DATA_ERROR);
+    const user = await prisma.usuario.findFirst({
+      where: { email: email },
+    });
+
+    for (let index = 0; index < 4; index++) {
+      await prisma.pergunta.create({
+        data: {
+          pergunta: respostasQuiz[index].pergunta,
+          resposta: respostasQuiz[index].resposta,
+          userId: user.id,
+        },
+      });
     }
 
-    console.log(quizAnswers);
-
-    return user;
+    return res.send("sucesso");
   } catch (error) {
-    console.log(error);
     return res.status(500).send(INTERNAL_SERVER_ERROR);
   }
 });
 
 app.patch("/users/:email", async (req, res) => {
   try {
-    const { email, name, password, description } = req.body;
+    const { email, nome, senha, descricao } = req.body;
 
-    const user = await prisma.user.update({
+    const usuario = await prisma.usuario.update({
       where: { email: email },
       data: {
         email: email,
-        name: name,
-        password: password,
-        description: description,
+        nome: nome,
+        senha: senha,
+        descricao: descricao,
       },
     });
 
-    return user;
+    return res.send(usuario);
   } catch (error) {
-    console.log(error);
     return res.status(500).send(INTERNAL_SERVER_ERROR);
   }
 });
@@ -118,12 +123,12 @@ app.get("/users/:email", async (req, res) => {
   try {
     const email = req.params.email;
 
-    const user = await prisma.user.findFirst({
+    const usuario = await prisma.usuario.findFirst({
       where: { email: email },
       include: { answers: true },
     });
 
-    return user;
+    return res.send(usuario);
   } catch (error) {
     return res.status(500).send(INTERNAL_SERVER_ERROR);
   }

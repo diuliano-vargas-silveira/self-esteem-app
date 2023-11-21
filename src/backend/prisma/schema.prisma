@@ -8,19 +8,19 @@ datasource db {
     url = env("DATABASE_URL")
 }
 
-model User {
-    id          Int      @id @default(autoincrement())
-    email       String   @unique
-    name        String
-    password    String
-    description String?
-    answers     Answer[]
+model Usuario {
+    id        Int        @id @default(autoincrement())
+    email     String     @unique
+    nome      String
+    senha     String
+    descricao String?
+    respostas Pergunta[]
 }
 
-model Answer {
-    id       Int    @id @default(autoincrement())
-    question String
-    answer   String
-    User     User?  @relation(fields: [userId], references: [id])
+model Pergunta {
+    id       Int      @id @default(autoincrement())
+    pergunta String
+    resposta String
     userId   Int?
+    Usuario  Usuario? @relation(fields: [userId], references: [id])
 }
