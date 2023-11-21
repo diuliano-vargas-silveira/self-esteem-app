@@ -6,12 +6,12 @@ import { iconeEdit, iconeUsuario } from "../../../assets";
 
 import "./sessao-perfil.estilo.css";
 
-function SessaoPefil({ nome, descricao, email }) {
+function SessaoPefil({ nome, descricao, email, imagem }) {
   return (
     <section className="perfil-sessao">
       <Link to={ROTAS.EDICAO_PERFIL.path} className="perfil-botao">
         <img
-          src={iconeUsuario}
+          src={imagem ? imagem : iconeUsuario}
           alt="icone de usuário"
           className="perfil-imagem"
         />

@@ -61,12 +61,16 @@ function EdicaoPerfil() {
     setImagem(files);
   }
 
-  async function handleEditar() {
-    const response = await editarUsuario({
-      email,
-      descricao: formulario.descricao.value,
-      nome: formulario.nome.value,
-    });
+  async function handleEditar(e) {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("foto", imagem[0]);
+    formData.append("email", email);
+    formData.append("nome", formulario.nome.value);
+    formData.append("descricao", formulario.descricao.value);
+
+    const response = await editarUsuario(formData);
 
     if (response) {
       alert("Usuário editado com sucesso!");
@@ -76,7 +80,11 @@ function EdicaoPerfil() {
 
   return (
     <main className="edicao">
-      <section className="perfil-sessao">
+      <form
+        className="perfil-sessao"
+        enctype="multipart/form-data"
+        onSubmit={handleEditar}
+      >
         <label htmlFor="image">
           <img
             src={imagePreview ? imagePreview : iconeUsuario}
@@ -105,10 +113,10 @@ function EdicaoPerfil() {
         />
         <span className="perfil-input">{localStorage.getItem("usuario")}</span>
 
-        <button className="perfil-submit" onClick={handleEditar}>
+        <button className="perfil-submit" type="submit">
           Editar
         </button>
-      </section>
+      </form>
     </main>
   );
 }

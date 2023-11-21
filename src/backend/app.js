@@ -1,6 +1,5 @@
 const express = require("express");
 
-const fs = require("fs");
 const multer = require("multer");
 const path = require("path");
 
@@ -11,10 +10,22 @@ const { PrismaClient } = require("@prisma/client");
 const app = express();
 
 app.use(express.json(), cors());
-app.use(express.urlencoded({ extended: true })); // TODO: try after without this
+app.use(express.urlencoded({ extended: true }));
 app.use("/image", express.static("image"));
 
 const prisma = new PrismaClient();
+
+let imageName = "";
+
+const storage = multer.diskStorage({
+  destination: path.join("./image"),
+  filename: function (req, file, cb) {
+    imageName = Date.now() + path.extname(file.originalname);
+    cb(null, imageName);
+  },
+});
+
+const upload = multer({ storage });
 
 const INSUFICIENT_DATA_ERROR = { error: "Dados incompletos." };
 const INTERNAL_SERVER_ERROR = { error: "Ocorreu um erro no servidor" };
@@ -105,16 +116,17 @@ app.post("/users/:email", async (req, res) => {
   }
 });
 
-app.patch("/users/:email", async (req, res) => {
+app.post("/users", upload.single("foto"), async (req, res) => {
   try {
     const { email, nome, descricao } = req.body;
 
     const usuario = await prisma.usuario.update({
-      where: { email },
+      where: { email: email },
       data: {
         email,
         nome,
         descricao,
+        imagem: imageName,
       },
     });
 
@@ -132,25 +144,10 @@ app.get("/users/:email", async (req, res) => {
       include: { respostas: true },
     });
 
+    usuario.imagem = "http://localhost:5000/image/" + imageName;
+
     return res.send(usuario);
   } catch (error) {
     return res.status(500).send(INTERNAL_SERVER_ERROR);
   }
-});
-
-let imageName = "";
-
-const storage = multer.diskStorage({
-  destination: path.join("./image"),
-  filename: function (req, file, cb) {
-    imageName = Date.now() + path.extname(file.originalname);
-    cb(null, imageName);
-  },
-});
-
-const upload = multer({ storage });
-
-app.post("/upload", upload.single("foto"), (req, res) => {
-  return res.json({ url: "http://localhost:5000/image/" + imageName });
-  // TODO: save here
 });

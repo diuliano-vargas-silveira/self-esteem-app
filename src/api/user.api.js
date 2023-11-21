@@ -44,7 +44,9 @@ export const useUserApi = () => {
 
   async function editarUsuario(data) {
     try {
-      const response = await api.put(`/users/${data.email}`, data);
+      const response = await api.post("/users", data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
 
       return response;
     } catch (e) {
