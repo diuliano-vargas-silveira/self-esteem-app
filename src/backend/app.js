@@ -1,5 +1,9 @@
 const express = require("express");
 
+const fs = require("fs");
+const multer = require("multer");
+const path = require("path");
+
 var cors = require("cors");
 
 const { PrismaClient } = require("@prisma/client");
@@ -7,6 +11,8 @@ const { PrismaClient } = require("@prisma/client");
 const app = express();
 
 app.use(express.json(), cors());
+app.use(express.urlencoded({ extended: true })); // TODO: try after without this
+app.use("/image", express.static("image"));
 
 const prisma = new PrismaClient();
 
@@ -15,7 +21,7 @@ const INTERNAL_SERVER_ERROR = { error: "Ocorreu um erro no servidor" };
 const NOT_AUTHORIZED_ERROR = { error: "Email ou senha incorretos" };
 
 app.listen(5000, () => {
-  console.log("Server listening on port: 8080");
+  console.log("Server listening on port: 5000");
 });
 
 app.get("/status", (req, res) => {
@@ -132,4 +138,21 @@ app.get("/users/:email", async (req, res) => {
   } catch (error) {
     return res.status(500).send(INTERNAL_SERVER_ERROR);
   }
+});
+
+let imageName = "";
+
+const storage = multer.diskStorage({
+  destination: path.join("./image"),
+  filename: function (req, file, cb) {
+    imageName = Date.now() + path.extname(file.originalname);
+    cb(null, imageName);
+  },
+});
+
+const upload = multer({ storage });
+
+app.post("/upload", upload.single("foto"), (req, res) => {
+  return res.json({ url: "http://localhost:5000/image/" + imageName });
+  // TODO: save here
 });
