@@ -51,3 +51,14 @@ span {
   padding-top: 0;
   padding-bottom: 0;
 }
+
+@media (max-width: 800px) {
+  .perfil-main {
+    padding: 0;
+  }
+
+  .perfil-sessao {
+    width: 100%;
+    overflow: auto;
+  }
+}

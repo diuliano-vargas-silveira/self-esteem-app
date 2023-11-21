@@ -13,10 +13,9 @@ function Meditacoes() {
     return (
       <iframe
         title="Spotify Embed"
+        className="spotify"
         style={{ borderRadius: "12px", marginTop: "5%" }}
         src={PLAYLIST_URL}
-        width="50%"
-        height="300px"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="eager"
       ></iframe>

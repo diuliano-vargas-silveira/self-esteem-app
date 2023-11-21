@@ -1,6 +1,7 @@
 .meditacoes {
   display: flex;
   flex-direction: column;
+  height: 100%;
   align-items: center;
 }
 
@@ -13,4 +14,25 @@
   font-size: 21px;
   width: 80%;
   margin: 0;
+}
+
+.spotify {
+  width: 60%;
+  height: 100%;
+}
+
+@media (max-width: 1000px) {
+  .spotify {
+    width: 80%;
+  }
+
+  .meditacoes > img {
+    min-width: 300px;
+  }
+
+  .meditacoes > p {
+    text-align: center;
+    font-size: 18px;
+    margin: 0;
+  }
 }

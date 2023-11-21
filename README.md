@@ -36,7 +36,7 @@ Abra um novo terminal e rode esses comandos, para rodar o servidor:
 ## Instalação Servidor
 
 ```sh
-cd /src/backend
+cd src/backend
 ```
 
 ```sh

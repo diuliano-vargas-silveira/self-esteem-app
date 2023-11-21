@@ -40,11 +40,11 @@ function EdicaoPerfil() {
     }
 
     if (!isCarregado && email) {
-      setIsCarregado();
+      setIsCarregado(true);
 
       adicionarFormulario(email);
     }
-  }, [isCarregado, getUserByEmail]);
+  }, [isCarregado, getUserByEmail, email]);
 
   function handleChange({ target: { name, value } }) {
     setFormulario({ ...formulario, [name]: { ...FORMULARIO[name], value } });
@@ -105,7 +105,7 @@ function EdicaoPerfil() {
         />
         <span className="perfil-input">{localStorage.getItem("usuario")}</span>
 
-        <button className="perfil-submit" onClick={handlEditar}>
+        <button className="perfil-submit" onClick={handleEditar}>
           Editar
         </button>
       </section>
