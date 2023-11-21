@@ -36,9 +36,9 @@ app.post("/sign-up", async (req, res) => {
 
     const usuario = await prisma.usuario.create({
       data: {
-        nome: nome,
-        email: email,
-        senha: senha,
+        nome,
+        email,
+        senha,
         descricao: "Sua descrição aqui.",
       },
     });
@@ -59,8 +59,8 @@ app.post("/login", async (req, res) => {
 
     const login = await prisma.usuario.findFirst({
       where: {
-        email: email,
-        senha: senha,
+        email,
+        senha,
       },
     });
 
@@ -80,7 +80,7 @@ app.post("/users/:email", async (req, res) => {
     const email = req.params.email;
 
     const user = await prisma.usuario.findFirst({
-      where: { email: email },
+      where: { email },
     });
 
     for (let index = 0; index < 4; index++) {
@@ -104,12 +104,12 @@ app.patch("/users/:email", async (req, res) => {
     const { email, nome, senha, descricao } = req.body;
 
     const usuario = await prisma.usuario.update({
-      where: { email: email },
+      where: { email },
       data: {
-        email: email,
-        nome: nome,
-        senha: senha,
-        descricao: descricao,
+        email,
+        nome,
+        senha,
+        descricao,
       },
     });
 
@@ -122,10 +122,9 @@ app.patch("/users/:email", async (req, res) => {
 app.get("/users/:email", async (req, res) => {
   try {
     const email = req.params.email;
-
     const usuario = await prisma.usuario.findFirst({
-      where: { email: email },
-      include: { answers: true },
+      where: { email },
+      include: { respostas: true },
     });
 
     return res.send(usuario);
